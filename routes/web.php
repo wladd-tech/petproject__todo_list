@@ -8,5 +8,7 @@ Route::get('/', function () {
 
 
 Route::get('/register', \App\Http\Controllers\Auth\RegisterUserContoller::class)->name('register');
+
 Route::get('/login', \App\Http\Controllers\Auth\RegisterUserContoller::class)->name('login');
+
 Route::get('/store', \App\Http\Controllers\Auth\RegisterUserContoller::class)->name('store');
