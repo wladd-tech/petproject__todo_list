@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RegisterUserController extends Controller
+class LoginUserController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -16,6 +16,6 @@ class RegisterUserController extends Controller
         if(Auth::check()){
             return redirect(route('profile'));
         }
-        return view('auth.register');
+        return view('auth.login');
     }
 }
