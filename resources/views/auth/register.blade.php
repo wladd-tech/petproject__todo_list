@@ -11,7 +11,7 @@
 <body>
     <div class="flex justify-center items-center h-screen bg-gray-300">
         <!-- Sign-in form -->
-        <form action="{{route('auth.store')}}" method="POST" class="w-3/12 p-8 mb-40 shadow-lg bg-white rounded-2xl">
+        <form action="{{route('user.store')}}" method="POST" class="w-3/12 p-8 mb-40 shadow-lg bg-white rounded-2xl">
             @csrf
         <div>
             <h1 class="text-2xl block text-center font-semibold">Регистрация аккаунта</h1>
@@ -22,7 +22,7 @@
                 @error('name')
                 <p class="text-red-500">{{$message}}</p>
                 @enderror
-                <input type="text" id="name" name="name"
+                <input type="text" id="name" name="name" value="{{old('name')}}"
                     class="border w-full text-base px-2 py-1 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-400"
                     placeholder="Имя">
             </div>
@@ -32,7 +32,7 @@
                 @error('email')
                 <p class="text-red-500">{{$message}}</p>
                 @enderror
-                <input type="email" id="email" name="email"
+                <input type="email" id="email" name="email" value="{{old('email')}}"
                     class="border w-full text-base px-2 py-1 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-400"
                     placeholder="email">
             </div>
@@ -65,7 +65,7 @@
             <!-- Sign-in link -->
             <div class="mt-3 flex justify-center gap-2 items-center mr-5">
                 <div><span>Уже есть аккаунт? </span></div>
-                <div><a href="{{route('auth.login')}}" class="text-indigo-800 font-semibold">Войдите</a></div>
+                <div><a href="{{route('user.login')}}" class="text-indigo-800 font-semibold">Войдите</a></div>
             </div>
         </div>
         </form>

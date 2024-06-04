@@ -11,7 +11,7 @@
 <body>
     <div class="flex justify-center items-center h-screen bg-gray-300">
         <!-- Sign-in form -->
-        <form action="{{route('auth.auth')}}" method="POST" class="w-3/12 p-8 mb-40 shadow-lg bg-white rounded-2xl">
+        <form action="{{route('user.auth')}}" method="POST" class="w-3/12 p-8 mb-40 shadow-lg bg-white rounded-2xl">
             @csrf
         <div>
             <h1 class="text-2xl block text-center font-semibold">Вход в аккаунт</h1>
@@ -22,19 +22,9 @@
                 @error('name')
                 <p class="text-red-500">{{$message}}</p>
                 @enderror
-                <input type="text" id="name" name="name"
+                <input type="text" id="name" name="name" value="{{old('name')}}"
                     class="border w-full text-base px-2 py-1 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-400"
                     placeholder="Имя">
-            </div>
-            <!-- Email input -->
-            <div class="mt-3">
-                <label for="email" class="block text-base mb-2">Email (не обязательно)</label>
-                @error('email')
-                <p class="text-red-500">{{$message}}</p>
-                @enderror
-                <input type="email" id="email" name="email"
-                    class="border w-full text-base px-2 py-1 rounded-lg focus:outline-none focus:ring-0 focus:border-gray-400"
-                    placeholder="email">
             </div>
             <!-- Password input -->
             <div class="mt-3">
@@ -49,11 +39,11 @@
             <!-- Remember me and Forgot password (hidden) -->
             <div class="mt-4 mx-2 flex justify-between items-center">
                 <div>
-                    <input class="mr-1" type="checkbox">
-                    <label>Запомнить меня</label>
+                    <input id="remember" name="remember" class="mr-1 form-check-input" type="checkbox">
+                    <label for="remember">Запомнить меня</label>
                 </div>
                 <div>
-                    <a href="#" class="text-indigo-800 font-semibold">Забыли пароль</a>
+                    <a href="#" class="text-indigo-800 font-semibold hidden">Забыли пароль</a>
                 </div>
             </div>
             <!-- Sign-in button -->
@@ -65,7 +55,7 @@
             <!-- Sign-up link -->
             <div class="mt-3 block text-center">
                 <div>
-                    <span>Нет профиля? </span><a href='{{route('auth.register')}}' class="text-indigo-800 font-semibold">Зарегистрируйся</a>
+                    <span>Нет профиля? </span><a href='{{route('user.register')}}' class="text-indigo-800 font-semibold">Зарегистрируйся</a>
                 </div>
             </div>
         </div>

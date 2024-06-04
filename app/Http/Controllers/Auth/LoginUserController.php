@@ -14,8 +14,9 @@ class LoginUserController extends Controller
     public function __invoke(Request $request)
     {
         if(Auth::check()){
-            return redirect(route('profile'));
+            return redirect(route('user.profile'));
         }
+
         return view('auth.login');
     }
 }

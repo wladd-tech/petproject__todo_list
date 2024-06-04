@@ -12,12 +12,11 @@ class StoreUserController extends Controller
 {
     public function __invoke(StoreUserRequest $request)
     {
-        $data = $request->validated();
-        $password = $data['password'];
-        $data['password'] = Hash::make($password);
+        $request->validated();
 
-        $user = User::create($data);
+        $user = User::create($request->all());
         Auth::login($user);
-        return redirect(route('profile'));
+
+        return view('auth.thanks-for-registration');
     }
 }

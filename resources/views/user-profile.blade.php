@@ -8,7 +8,7 @@
     <title>Profile</title>
 </head>
 <body>
-    <h1>This is user profile</h1>
-    <button><a href="{{route('auth.logout')}}">Выйти</a></button>
+    <h1>This is user profile "{{$user_name}}"</h1>
+    <button><a href="{{route('user.logout')}}">Выйти</a></button>
 </body>
 </html>

@@ -3,19 +3,19 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\View\View;
 
 class RegisterUserController extends Controller
 {
-    /**
-     * Handle the incoming request.
-     */
-    public function __invoke(Request $request)
+    public function __invoke(Request $request): View|RedirectResponse
     {
-        if(Auth::check()){
-            return redirect(route('profile'));
+        if (Auth::check()) {
+            return redirect()->route('user.profile');
         }
+
         return view('auth.register');
     }
 }
