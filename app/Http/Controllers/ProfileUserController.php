@@ -16,12 +16,9 @@ class ProfileUserController extends Controller
         if(!Auth::check()){
             return redirect(route('user.login'));
         }
-        else{
-            $user = User::find(Auth::user())->first();
-            $user_name = $user['name'];
-        }
 
+        $user_lists = User::query()->find(Auth::user()->id)->task_lists->toArray();
 
-        return view('user-profile', compact('user_name'));
+        return view('dashboard', compact('user_lists'));
     }
 }
