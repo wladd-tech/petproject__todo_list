@@ -22,9 +22,11 @@ Route::name('user.')->group(function (){
     Route::get('/profile', Controllers\ProfileUserController::class)->name('profile');
 });
 
-
-
-
+Route::name('todo.')->group(function (){
+    Route::post('/todo_create', Controllers\TodoLists\StoreTodoController::class)->name('list.store');
+    Route::post('/task_create/{todo_list_id}', Controllers\TodoLists\StoreTaskController::class)->name('task.store');
+    Route::get('/todo-list/{id}', Controllers\TodoLists\ShowTodoListController::class)->name('todo-list');
+});
 
 
 
